@@ -18,6 +18,15 @@ int main() {
 
 
         try {
+                char rf;
+                cout << "Ivestis ranka - 1, Is failo - 2" <<endl;
+                cin >> rf;
+
+                if (rf == '1') {
+                    ranka(studentai);
+                }
+                else if (rf == '2'){
+
                 char ne;
                 cout << "Generuoti nauja ar naudoti esama? (Nauja - N. Esama - E)" << endl;
                 cin >> ne;
@@ -25,7 +34,7 @@ int main() {
                 char pasDyd;
                 cout << "Pasirinkite, su kokio dydzio failu norite dirbti: 1. 1000 2. 10000 3. 100000 4. 1000000 5. 10000000"<< endl;
                 cin >> pasDyd;
-int dyd;
+            int dyd;
      
                 if (ne == 'N' || ne == 'n') {
 
@@ -98,7 +107,7 @@ int dyd;
                 }
 
             
-
+                }
 
         } catch (const invalid_argument& e) {
             cout << "Klaida: " << e.what() << " Prašome įvesti tinkamą pasirinkimą.\n";
