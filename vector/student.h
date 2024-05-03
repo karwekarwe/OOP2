@@ -41,7 +41,7 @@ public:
     // Move constructor
     Stud(Stud&& other) noexcept // move constructor
         : vardas_(move(other.vardas_)), pavarde_(move(other.pavarde_)), egzaminas_(other.egzaminas_), gal_(other.gal_), namuDarbai_(move(other.namuDarbai_)), ndcount_(move(other.ndcount_)){
-        other.ndcount_ = 0;}
+        other.vardas_.empty(); other.pavarde_.empty(); other.ndcount_ = 0;  other.egzaminas_ = 0; other.gal_ = 0; other.namuDarbai_.empty();}// cia ir kiti =0
     // Move assignment operator
 
     Stud& operator=(Stud&& other) noexcept { // move assignment
