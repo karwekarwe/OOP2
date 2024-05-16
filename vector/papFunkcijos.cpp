@@ -56,40 +56,39 @@ using namespace std;
     void testai(){
 
         // constructor
-   // vector<int> nd = {1, 2, 2};
+    vector<int> nd = {1, 2, 3};
     std::string vardas = "John";
     std::string pavarde = "Doe";
-    //Stud s2(nd, vardas, pavarde, 3, 3.3, 3);
-    Stud s2(vardas, pavarde);
+    Stud s2(nd, vardas, pavarde, 0, 0.0, 3);
     assert(s2.getVardas() == "John");
     assert(s2.getPavarde() == "Doe");
-    assert(s2.getNamuDarbai().empty());
+    assert(s2.getNamuDarbai() == nd);
     assert(s2.getEgzaminas() == 0);
-    assert(s2.getGal() == 0);
-    assert(s2.getNdcount() == 0);
+    assert(s2.getGal() == 0.0);
+    assert(s2.getNdcount() == 3);
 
         // copy contruct
     Stud s3 = s2;
     assert(s3.getVardas() == "John");
     assert(s3.getPavarde() == "Doe");
-    assert(s3.getNamuDarbai().empty());
+    assert(s3.getNamuDarbai() == nd);
     assert(s3.getEgzaminas() == 0);
-    assert(s3.getGal() == 0);
-    assert(s3.getNdcount() == 0);
+    assert(s3.getGal() == 0.0);
+    assert(s3.getNdcount() == 3);
 
 
-        // move constr
+        // moce constr
 
     Stud s4 = std::move(s3);
     assert(s4.getVardas() == "John");
     assert(s4.getPavarde() == "Doe");
-    assert(s4.getNamuDarbai().empty());
+    assert(s4.getNamuDarbai() == nd);
     assert(s4.getEgzaminas() == 0);
-    assert(s4.getGal() == 0);
-    assert(s4.getNdcount() == 0);
+    assert(s4.getGal() == 0.0);
+    assert(s4.getNdcount() == 3);
 
-//assert(s3.getVardas().empty());
-   // assert(s3.getPavarde().empty());
+    assert(s3.getVardas().empty());
+    assert(s3.getPavarde().empty());
     assert(s3.getNamuDarbai().empty());
     assert(s3.getEgzaminas() == 0);
     assert(s3.getGal() == 0.0);

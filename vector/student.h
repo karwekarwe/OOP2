@@ -5,50 +5,29 @@
 #include <string>
 #include <vector>
 #include <iomanip>
+#include "zmogus.h" 
 
 using namespace std;
 
-class Zmogus {
-    protected:
-
-    string vardas_;
-    string pavarde_;
-
-    Zmogus() = default;
-    Zmogus(const string& vardas, const string& pavarde)
-    : vardas_(vardas), pavarde_(pavarde) {}
-   
-
- public:
-    virtual ~Zmogus() {}
-    virtual string getVardas() const {return vardas_;}
-    virtual string getPavarde() const {return pavarde_;}
-    virtual void setVardas(const string& vardas) {vardas_ = vardas;}
-    virtual void setPavarde(const string& pavarde) {pavarde_ = pavarde;}
-
-};
-
-class Stud : public Zmogus {
+class Stud : public Zmogus{
 private:
+  //  string vardas_, pavarde_;
     int egzaminas_, ndcount_;
     double gal_;
     vector<int> namuDarbai_;
 public:
     Stud() : egzaminas_(0), gal_(0), ndcount_(0) { }  // default konstruktorius
-   //Stud(vector <int>& namuDarbai, string& vardas, string& pavarde, int egzaminas, double gal, int ndcount)
-   //     : Zmogus(vardas, pavarde),namuDarbai_(namuDarbai), egzaminas_(egzaminas), gal_(gal), ndcount_(ndcount) {}
-   Stud(const string& vardas, const string& pavarde) : Zmogus(vardas, pavarde), egzaminas_(0), ndcount_(0), gal_(0.0){}
+    Stud(vector <int>& namuDarbai, string& vardas, string& pavarde, int egzaminas, double gal, int ndcount)
+        : namuDarbai_(namuDarbai), Zmogus(vardas, pavarde), egzaminas_(egzaminas), gal_(gal), ndcount_(ndcount) {}
 
-
-    ~Stud() {namuDarbai_.clear(); vardas_.clear(), pavarde_.clear();}
+    ~Stud() {}
 
     // Copy constructor
     Stud(const Stud& other)
         : Zmogus(other.vardas_, other.pavarde_),  egzaminas_(other.egzaminas_),  gal_(other.gal_),  namuDarbai_(other.namuDarbai_), ndcount_(other.ndcount_) {}
-   
-   // Copy assignment operator
 
-    Stud& operator=(const Stud& other) {
+    // Copy assignment operator
+    Stud& operator=(const Stud& other) {// copy assignment
         if (this != &other) {
             vardas_ = other.vardas_;
             pavarde_ = other.pavarde_;
@@ -61,12 +40,12 @@ public:
     }
 
     // Move constructor
-    Stud(Stud&& other) noexcept 
+    Stud(Stud&& other) noexcept // move constructor
         : Zmogus(move(other.vardas_), move(other.pavarde_)), egzaminas_(other.egzaminas_), gal_(other.gal_), namuDarbai_(move(other.namuDarbai_)), ndcount_(move(other.ndcount_)){
-        other.vardas_.empty(); other.pavarde_.empty(); other.ndcount_ = 0;  other.egzaminas_ = 0; other.gal_ = 0; other.namuDarbai_.empty();}// cia ir kiti =0
-
+        other.ndcount_ = 0;}
     // Move assignment operator
-    Stud& operator=(Stud&& other) noexcept { 
+
+    Stud& operator=(Stud&& other) noexcept { // move assignment
         if (this != &other) {
             vardas_ = move(other.vardas_);
             pavarde_ = move(other.pavarde_);
@@ -74,10 +53,6 @@ public:
             gal_ = move(other.gal_);
             namuDarbai_ = move(other.namuDarbai_);
             ndcount_ = move(other.ndcount_);
-
-            other.vardas_.clear();
-            other.pavarde_.clear();
-            other.vardas_.empty(); other.pavarde_.empty(); other.ndcount_ = 0;  other.egzaminas_ = 0; other.gal_ = 0; other.namuDarbai_.empty();
         }
         return *this;
     }
@@ -86,12 +61,16 @@ public:
 
     // getteriai
     vector <int> getNamuDarbai() const {return namuDarbai_;}
+    string getVardas() const {return vardas_;}
+    string getPavarde() const {return pavarde_;}
     int getEgzaminas() const {return egzaminas_;}
     double getGal() const {return gal_;}
     int getNdcount() const {return ndcount_;}
 
     //setteriai
     void setNamuDarbai(const vector <int>& namuDarbai) {namuDarbai_ = namuDarbai;}
+    void setVardas(const string& vardas) {vardas_ = vardas;}
+    void setPavarde(const string& pavarde) {pavarde_ = pavarde;}
     void setEgzaminas (int egzaminas) {egzaminas_ = egzaminas;}
     void setGal (double gal) {gal_ = gal;}
     void setNdcount (int ndcount) {ndcount_ = ndcount;}
