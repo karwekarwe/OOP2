@@ -77,9 +77,9 @@ using namespace std;
     assert(s3.getNdcount() == 3);
 
 
-        // moce constr
+        // move constr
 
-    Stud s4 = std::move(s3);
+    Stud s4 = move(s3);
     assert(s4.getVardas() == "John");
     assert(s4.getPavarde() == "Doe");
     assert(s4.getNamuDarbai() == nd);

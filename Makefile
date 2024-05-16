@@ -5,7 +5,7 @@ CFLAGS = -Wall -std=c++17
 
 all: v0 #v1 v2 v3
 
-v0: vector/1.5main.cpp vector/ranka.cpp vector/failuGen.cpp vector/isFailo.cpp vector/papFunkcijos.cpp vector/rusiavimasGen.cpp vector/student.h vector/funkcijos.h
+v0: vector/1.5main.cpp vector/ranka.cpp vector/failuGen.cpp vector/isFailo.cpp vector/papFunkcijos.cpp vector/rusiavimasGen.cpp vector/student.h vector/funkcijos.h vector/zmogus.h
 	$(CC) $^ -o $@
 
 #v1: vector/1.5main.cpp vector/ranka.cpp vector/failuGen.cpp vector/isFailo.cpp vector/papFunkcijos.cpp vector/rusiavimasGen.cpp vector/student.h vector/funkcijos.h
