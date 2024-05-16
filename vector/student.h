@@ -26,7 +26,7 @@ public:
         : vardas_(other.vardas_), pavarde_(other.pavarde_),  egzaminas_(other.egzaminas_),  gal_(other.gal_),  namuDarbai_(other.namuDarbai_), ndcount_(other.ndcount_) {}
 
     // Copy assignment operator
-    Stud& operator=(const Stud& other) {// copy assignment
+    Stud& operator=(const Stud& other) {
         if (this != &other) {
             vardas_ = other.vardas_;
             pavarde_ = other.pavarde_;
@@ -39,12 +39,12 @@ public:
     }
 
     // Move constructor
-    Stud(Stud&& other) noexcept // move constructor
+    Stud(Stud&& other) noexcept 
         : vardas_(move(other.vardas_)), pavarde_(move(other.pavarde_)), egzaminas_(other.egzaminas_), gal_(other.gal_), namuDarbai_(move(other.namuDarbai_)), ndcount_(move(other.ndcount_)){
-        other.vardas_.empty(); other.pavarde_.empty(); other.ndcount_ = 0;  other.egzaminas_ = 0; other.gal_ = 0; other.namuDarbai_.empty();}// cia ir kiti =0
-    // Move assignment operator
-
-    Stud& operator=(Stud&& other) noexcept { // move assignment
+        other.vardas_.clear(); other.pavarde_.clear(); other.ndcount_ = 0;  other.egzaminas_ = 0; other.gal_ = 0; other.namuDarbai_.clear();}// cia ir kiti =0
+   
+   // Move assignment operator
+    Stud& operator=(Stud&& other) noexcept { 
         if (this != &other) {
             vardas_ = move(other.vardas_);
             pavarde_ = move(other.pavarde_);
