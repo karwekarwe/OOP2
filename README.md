@@ -30,7 +30,7 @@
 + Destructor
 
 ```
-    ~Stud() {}
+    ~Stud() {namuDarbai_.clear(); vardas_.clear(), pavarde_.clear();}
 ```
 
 + Copy constructor 

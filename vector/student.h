@@ -19,7 +19,7 @@ public:
     Stud(vector <int>& namuDarbai, string& vardas, string& pavarde, int egzaminas, double gal, int ndcount)
         : namuDarbai_(namuDarbai), vardas_(vardas), pavarde_(pavarde), egzaminas_(egzaminas), gal_(gal), ndcount_(ndcount) {}
 
-    ~Stud() {namuDarbai_.clear();}
+    ~Stud() {namuDarbai_.clear(); vardas_.clear(), pavarde_.clear();}
 
     // Copy constructor
     Stud(const Stud& other)
